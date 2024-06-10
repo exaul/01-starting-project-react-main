@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { CORE_CONCEPTS } from "./data";
 import Header from "./Components/Header/Header";
@@ -13,14 +14,25 @@ function App() {
     setSelectedTopic(selectedButton);
   }
 
+=======
+import Header from "./Components/Header.jsx";
+import CoreConcept from "./components/CoreConcept.jsx";
+import { CORE_CONCEPTS } from "./data";
+
+function App() {
+>>>>>>> b987b0121f4fb321b4e4b10d05b7d5105d19d9a4
   return (
     <div>
       <Header />
+
       <main>
-        <h2>Time to get started!</h2>
+        <h2>Time to get Started!</h2>
+
         <section id="core-concepts">
-          <h2>CoreConcepts</h2>
+          <h2>Core Concepts</h2>
+
           <ul>
+<<<<<<< HEAD
             {CORE_CONCEPTS.map((concepItem) => (
               <CoreConcept {...concepItem} />
             ))}
@@ -76,6 +88,25 @@ function App() {
             )}
           </section>
         </section>
+=======
+            <CoreConcept
+              image={CORE_CONCEPTS[0].image}
+              title={CORE_CONCEPTS[0].title}
+              description={CORE_CONCEPTS[0].description}
+            />
+
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+
+            <CoreConcept {...CORE_CONCEPTS[2]} />
+
+            <CoreConcept
+              image={CORE_CONCEPTS[3].image}
+              title={CORE_CONCEPTS[3].title}
+              description={CORE_CONCEPTS[3].description}
+            />
+          </ul>
+        </section>
+>>>>>>> b987b0121f4fb321b4e4b10d05b7d5105d19d9a4
       </main>
     </div>
   );
