@@ -3,10 +3,13 @@ import CoreConcept from "./components/CoreConcept/CoreConcept.jsx";
 import TabButton from "./Components/TabButton/Tabbutton.jsx";
 
 import { CORE_CONCEPTS } from "./data";
+import { useState } from "react";
 
 function App() {
+  const [content, setContent] = useState("Press a button");
+
   function handleClick(selectedButton) {
-    console.log(selectedButton);
+    setContent(selectedButton);
   }
 
   return (
@@ -71,6 +74,7 @@ function App() {
               State
             </TabButton>
           </menu>
+          {content}
         </section>
       </main>
     </div>
