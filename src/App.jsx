@@ -1,64 +1,35 @@
-import React from "react";
-import ComponentImg from "./assets/components.png";
+import Header from "./Components/Header.jsx";
+import CoreConcept from "./components/CoreConcept.jsx";
 import { CORE_CONCEPTS } from "./data";
-import Header from "./Components/Header/Header";
-import CoreConcept from "./Components/CoreConcept/CoreConcept";
-import TabButton from "./Components/TabButton/TabButton";
 
 function App() {
-  function handleClick(selectedButton) {
-    console.log(selectedButton);
-  }
-
   return (
     <div>
       <Header />
+
       <main>
-        <h2>Time to get started!</h2>
+        <h2>Time to get Started!</h2>
+
         <section id="core-concepts">
-          <h2>CoreConcepts</h2>
+          <h2>Core Concepts</h2>
+
           <ul>
-            <CoreConcept {...CORE_CONCEPTS[0]} />
+            <CoreConcept
+              image={CORE_CONCEPTS[0].image}
+              title={CORE_CONCEPTS[0].title}
+              description={CORE_CONCEPTS[0].description}
+            />
+
             <CoreConcept {...CORE_CONCEPTS[1]} />
+
             <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+
+            <CoreConcept
+              image={CORE_CONCEPTS[3].image}
+              title={CORE_CONCEPTS[3].title}
+              description={CORE_CONCEPTS[3].description}
+            />
           </ul>
-        </section>
-        <section id="examples">
-          <h2></h2>
-          <section id="examples">
-            <TabButton
-              handleClick={() => {
-                handleClick("Components");
-              }}
-            >
-              Components
-            </TabButton>
-            <br />
-            <TabButton
-              handleClick={() => {
-                handleClick("JSX");
-              }}
-            >
-              JSX
-            </TabButton>
-            <br />
-            <TabButton
-              handleClick={() => {
-                handleClick("Props");
-              }}
-            >
-              Props
-            </TabButton>
-            <br />
-            <TabButton
-              handleClick={() => {
-                handleClick("state");
-              }}
-            >
-              state
-            </TabButton>
-          </section>
         </section>
       </main>
     </div>
