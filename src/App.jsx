@@ -14,6 +14,20 @@ function App() {
     setSelectedTopic(selectedButton);
   }
 
+  let tabContent = <p>Please, select a topic.</p>;
+
+  if (selectedTopic !== undefined) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Header />
@@ -25,21 +39,10 @@ function App() {
           <h2>Core Concepts</h2>
 
           <ul>
-            <CoreConcept
-              image={CORE_CONCEPTS[0].image}
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-            />
+            {CORE_CONCEPTS.map((conceptItem) => (
+              <CoreConcept key={conceptItem.title} {...conceptItem} />
+            ))}
 
-            <CoreConcept {...CORE_CONCEPTS[1]} />
-
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-
-            <CoreConcept
-              image={CORE_CONCEPTS[3].image}
-              title={CORE_CONCEPTS[3].title}
-              description={CORE_CONCEPTS[3].description}
-            />
           </ul>
         </section>
 
@@ -77,17 +80,7 @@ function App() {
             </TabButton>
           </menu>
 
-          {selectedTopic === undefined ? (
-            <h2>Please, select a topic.</h2>
-          ) : (
-            <div id="tab-content">
-              <h3>{EXAMPLES[selectedTopic].title}</h3>
-              <p>{EXAMPLES[selectedTopic].description}</p>
-              <pre>
-                <code>{EXAMPLES[selectedTopic].code}</code>
-              </pre>
-            </div>
-          )}
+          {tabContent}
         </section>
       </main>
     </div>
