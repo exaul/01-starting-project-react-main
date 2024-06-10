@@ -1,8 +1,14 @@
-import Header from "./components/Header.jsx";
-import CoreConcept from "./components/CoreConcept.jsx";
+import Header from "./Components/Header/Header.jsx";
+import CoreConcept from "./components/CoreConcept/CoreConcept.jsx";
+import TabButton from "./Components/TabButton/Tabbutton.jsx";
+
 import { CORE_CONCEPTS } from "./data";
 
 function App() {
+  function handleClick(selectedButton) {
+    console.log(selectedButton);
+  }
+
   return (
     <div>
       <Header />
@@ -30,6 +36,41 @@ function App() {
               description={CORE_CONCEPTS[3].description}
             />
           </ul>
+        </section>
+
+        <section id="examples">
+          <h2>Examples</h2>
+
+          <menu>
+            <TabButton
+              onClick={() => {
+                handleClick("Components");
+              }}
+            >
+              Components
+            </TabButton>
+            <TabButton
+              onClick={() => {
+                handleClick("JSX");
+              }}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              onClick={() => {
+                handleClick("Props");
+              }}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              onClick={() => {
+                handleClick("State");
+              }}
+            >
+              State
+            </TabButton>
+          </menu>
         </section>
       </main>
     </div>
